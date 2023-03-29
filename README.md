@@ -20,6 +20,7 @@ Developed by: KARTHICK RAJ.M
 RegisterNumber:  212221040073
 */
 
+```
 # implement a simple regression model for predicting the marks scored by the students
 
 import pandas as pd
@@ -66,7 +67,7 @@ print('MAE = ',mae)
 
 rmse=np.sqrt(mse)
 print("RMSE = ",rmse)
-*/
+```
 
 
 
