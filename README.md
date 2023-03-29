@@ -65,11 +65,14 @@ print('MAE = ',mae)
 
 rmse=np.sqrt(mse)
 print("RMSE = ",rmse)
-```
 
 
 
-## Output:
+
+
+
+
+ Output:
 
 
 ![image](https://user-images.githubusercontent.com/128134963/228480273-53cb6549-4654-4ad5-910f-de5017b4a394.png)
@@ -77,14 +80,24 @@ print("RMSE = ",rmse)
 
 ![image](https://user-images.githubusercontent.com/128134963/228480342-6b3609f0-0817-4059-b6cf-bc5385c095b7.png)
 
+
 ![image](https://user-images.githubusercontent.com/128134963/228480373-8445c7b9-b9ce-4716-953c-7edb87d42df4.png)
+
+
+
 
 
 ![image](https://user-images.githubusercontent.com/128134963/228480429-a0108939-aa76-4562-9f7d-4a9a0d4a4261.png)
 
+
+
 ![image](https://user-images.githubusercontent.com/128134963/228480489-946ec4d6-a298-4664-a84c-22c4429eb074.png)
 
+
+
 ![image](https://user-images.githubusercontent.com/128134963/228480522-08024e59-869f-404c-80d1-02a28f8dbb1d.png)
+
+
 
 ![image](https://user-images.githubusercontent.com/128134963/228480562-c0294653-64f5-4252-8914-dadd9558884f.png)
 
