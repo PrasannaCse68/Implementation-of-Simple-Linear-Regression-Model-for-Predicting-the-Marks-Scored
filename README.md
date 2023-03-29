@@ -21,8 +21,6 @@ Developed by: KARTHICK RAJ.M
 RegisterNumber:  212221040073
 */
 ```
-# implement a simple regression model for predicting the marks scored by the students
-
 import pandas as pd
 import numpy as np
 dataset=pd.read_csv('/content/student_scores.csv')
@@ -67,6 +65,7 @@ print('MAE = ',mae)
 
 rmse=np.sqrt(mse)
 print("RMSE = ",rmse)
+```
 
 
 
