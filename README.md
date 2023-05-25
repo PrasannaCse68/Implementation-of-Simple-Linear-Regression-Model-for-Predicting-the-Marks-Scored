@@ -29,14 +29,6 @@ RegisterNumber:  212221040073
 
 
 
-/*
-Program to implement the the Logistic Regression Using Gradient Descent.
-Developed by: Chandhuru S
-RegisterNumber: 212220220007 
-*/
-
-
-
 
 import numpy as np
 import matplotlib.pyplot as plt
