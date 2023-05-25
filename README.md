@@ -28,6 +28,7 @@ RegisterNumber:  212221040073
 ```
 # implement a simple regression model for predicting the marks scored by the students
 
+
 import pandas as pd
 import numpy as np
 df=pd.read_csv('student_scores.csv')
@@ -76,10 +77,12 @@ print('RMSE = ',rmse)
  Output:
 
 
-![image](https://user-images.githubusercontent.com/128134963/228480273-53cb6549-4654-4ad5-910f-de5017b4a394.png)
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/cf7eb0eb-305d-4e13-b2b2-671f3dbb0e87)
 
 
-![image](https://user-images.githubusercontent.com/128134963/228480342-6b3609f0-0817-4059-b6cf-bc5385c095b7.png)
+
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/a3fc88d9-8b53-49ce-b07a-1f843714e465)
+
 
 
 ![image](https://user-images.githubusercontent.com/128134963/228480373-8445c7b9-b9ce-4716-953c-7edb87d42df4.png)
@@ -88,19 +91,8 @@ print('RMSE = ',rmse)
 
 
 
-![image](https://user-images.githubusercontent.com/128134963/228480429-a0108939-aa76-4562-9f7d-4a9a0d4a4261.png)
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/5aae4940-1e69-47c0-91b8-ab98f77ed94e)
 
-
-
-![image](https://user-images.githubusercontent.com/128134963/228480489-946ec4d6-a298-4664-a84c-22c4429eb074.png)
-
-
-
-![image](https://user-images.githubusercontent.com/128134963/228480522-08024e59-869f-404c-80d1-02a28f8dbb1d.png)
-
-
-
-![image](https://user-images.githubusercontent.com/128134963/228480562-c0294653-64f5-4252-8914-dadd9558884f.png)
 
 
 
