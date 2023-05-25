@@ -17,14 +17,12 @@ To write a program to implement the the Logistic Regression Using Gradient Desce
 6.Obtain the graph.
 ```
 ## Program:
-/*
 ```
+/*
 Program to implement the the Logistic Regression Using Gradient Descent.
 Developed by: KARTHICK RAJ.M
 RegisterNumber:  212221040073
-```
 */
-
 ```
 
 
@@ -117,7 +115,7 @@ def predict(theta,X):
     return (prob>=0.5).astype(int)
 np.mean(predict(res.x,X)==y)
 
-```
+
 
 
 
