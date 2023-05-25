@@ -1,7 +1,7 @@
-# Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored
+# Implementation-of-Logistic-Regression-Using-Gradient-Descent
 
 ## AIM:
-To write a program to predict the marks scored by a student using the simple linear regression model.
+To write a program to implement the the Logistic Regression Using Gradient Descent.
 
 ## Equipments Required:
 1. Hardware – PCs
@@ -9,62 +9,122 @@ To write a program to predict the marks scored by a student using the simple lin
 
 ## Algorithm
 ```
-1.Import the standard Libraries.
+1.Use the standard libraries in python for finding linear regression.
 2.Set variables for assigning dataset values.
 3.Import linear regression from sklearn.
-4.Assign the points for representing in the graph
-5.Predict the regression for marks by using the representation of the graph.
-6.Compare the graphs and hence we obtained the linear regression for the given datas.
+4.Predict the values of array.
+5.Calculate the accuracy, confusion and classification report b importing the required modules from sklearn.
+6.Obtain the graph.
 ```
 ## Program:
 /*
 ```
-Program to implement the simple linear regression model for predicting the marks scored.
+Program to implement the the Logistic Regression Using Gradient Descent.
 Developed by: KARTHICK RAJ.M
 RegisterNumber:  212221040073
 ```
 */
 
 ```
-# implement a simple regression model for predicting the marks scored by the students
 
 
-import pandas as pd
+
+/*
+Program to implement the the Logistic Regression Using Gradient Descent.
+Developed by: Chandhuru S
+RegisterNumber: 212220220007 
+*/
+
+
+
+
 import numpy as np
-df=pd.read_csv('student_scores.csv')
-print(df)
-
-X=df.iloc[:,:-1].values
-Y=df.iloc[:,1].values
-print(X,Y)
-from sklearn.model_selection import train_test_split
-X_train,X_test,Y_train,Y_test=train_test_split(X,Y,test_size=1/3,random_state=0)
-from sklearn.linear_model import LinearRegression
-reg=LinearRegression()
-reg.fit(X_train,Y_train)
-
-Y_pred=reg.predict(X_test)
 import matplotlib.pyplot as plt
-from sklearn.metrics import mean_absolute_error , mean_squared_error
+from scipy import optimize
 
-plt.scatter(X_train,Y_train,color='green')
-plt.plot(X_train,reg.predict(X_train),color='purple')
-plt.title(' Training set (Hours Vs Scores)')
-plt.xlabel('Hours')
-plt.ylabel('Scores')
+data=np.loadtxt("ex2data1.txt",delimiter=',')
+X=data[:,[0,1]]
+y=data[:,2]
 
-plt.scatter(X_test,Y_test,color='green')
-plt.plot(X_test,reg.predict(X_test),color='purple')
-plt.title(' Training set (Hours Vs Scores)')
-plt.xlabel('Hours')
-plt.ylabel('Scores')
+X[:5]
 
-mse=mean_squared_error(Y_test,Y_pred)
-print('MSE = ',mse)
-mae=mean_absolute_error(Y_test,Y_pred)
-print('MAE = ',mae)
-rmse=np.sqrt(mse)
-print('RMSE = ',rmse)
+y[:5]
+
+plt.figure()
+plt.scatter(X[y==1][:,0],X[y==1][:,1],label="Admitted")
+plt.scatter(X[y==0][:,0],X[y==0][:,1],label="Not Admitted")
+plt.xlabel("Exam 1 score")
+plt.ylabel("Exam 2 score")
+plt.legend()
+plt.show()
+
+def sigmoid(z):
+    return 1/(1+np.exp(-z))
+
+plt.plot()
+X_plot=np.linspace(-10,10,100)
+plt.plot(X_plot,sigmoid(X_plot))
+plt.show()
+
+def costFunction (theta,X,y):
+    h=sigmoid(np.dot(X,theta))
+    J=-(np.dot(y,np.log(h))+np.dot(1-y,np.log(1-h)))/X.shape[0]
+    grad=np.dot(X.T,h-y)/X.shape[0]
+    return J,grad
+
+X_train=np.hstack((np.ones((X.shape[0],1)),X))
+theta=np.array([0,0,0])
+J,grad=costFunction(theta,X_train,y)
+print(J)
+print(grad)
+
+def cost (theta,X,y):
+    h=sigmoid(np.dot(X,theta))
+    J=-(np.dot(y,np.log(h))+np.dot(1-y,np.log(1-h)))/X.shape[0]
+    return J
+
+def gradient (theta,X,y):
+    h=sigmoid(np.dot(X,theta))
+    grad=np.dot(X.T,h-y)/X.shape[0]
+    return grad
+
+X_train=np.hstack((np.ones((X.shape[0],1)),X))
+theta=np.array([0,0,0])
+res=optimize.minimize(fun=cost,x0=theta,args=(X_train,y),method='Newton-CG',jac=gradient)
+print(res.fun)
+print(res.x)
+
+
+
+def plotDecisionBoundary(theta,X,y):
+    x_min,x_max=X[:,0].min()-1,X[:,0].max()+1
+    y_min,y_max=X[:,1].min()-1,X[:,1].max()+1
+    xx,yy=np.meshgrid(np.arange(x_min,x_max,0.1),np.arange(y_min,y_max,0.1))
+    X_plot=np.c_[xx.ravel(),yy.ravel()]
+    X_plot=np.hstack((np.ones((X_plot.shape[0],1)),X_plot))
+    y_plot=np.dot(X_plot,theta).reshape(xx.shape)
+    
+    plt.figure()
+    plt.scatter(X[y==1][:,0],X[y==1][:,1],label="Admitted")
+    plt.scatter(X[y==0][:,0],X[y==0][:,1],label="Not Admitted")
+    plt.contour(xx,yy,y_plot,levels=[0])
+    plt.xlabel("Exam 1 score")
+    plt.ylabel("Exam 2 score")
+    plt.legend()
+    plt.show()
+
+
+plotDecisionBoundary(res.x,X,y)
+
+prob=sigmoid(np.dot(np.array([1,45,85]),res.x))
+print(prob)
+
+def predict(theta,X):
+    X_train =np.hstack((np.ones((X.shape[0],1)),X))
+    prob=sigmoid(np.dot(X_train,theta))
+    return (prob>=0.5).astype(int)
+np.mean(predict(res.x,X)==y)
+
 ```
 
 
@@ -77,19 +137,27 @@ print('RMSE = ',rmse)
  Output:
 
 
-![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/cf7eb0eb-305d-4e13-b2b2-671f3dbb0e87)
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/ca0ae398-5262-4c9a-976b-bae39e59469f)
 
 
 
-![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/a3fc88d9-8b53-49ce-b07a-1f843714e465)
-
-
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/9e5c05e1-c53f-42fe-a2f9-64383ee09f82)
 
 
 
 
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/82db1bb5-3864-44b8-99b0-85657748ff29)
 
-![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/5aae4940-1e69-47c0-91b8-ab98f77ed94e)
+
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/8ec1b12f-d5b6-435e-a6cf-e1f99cb612ff)
+
+
+
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/f62c3589-86ab-4d45-a144-f7d6a98f5bd2)
+
+
+
+![image](https://github.com/KARTHICKRAJM84/Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored/assets/128134963/fcc9aa86-09e1-4088-be86-17f091e9f003)
 
 
 
