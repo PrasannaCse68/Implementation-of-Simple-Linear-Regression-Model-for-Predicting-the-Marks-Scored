@@ -27,7 +27,7 @@ RegisterNumber:  212221040073
 
 
 
-
+```
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy import optimize
@@ -117,7 +117,7 @@ np.mean(predict(res.x,X)==y)
 
 
 
-
+```
 
 
 
