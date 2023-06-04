@@ -1,31 +1,41 @@
 # Implementation-of-Simple-Linear-Regression-Model-for-Predicting-the-Marks-Scored
 
 ## AIM:
-To write a program to predict the marks scored by a student using the simple linear regression model.
+To write a program to implement the simple linear regression model for predicting the marks scored.
 
 ## Equipments Required:
 1. Hardware – PCs
-2. Anaconda – Python 3.7 Installation / Jupyter notebook
+2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
 ## Algorithm
-1. Import the required libraries and read the dataframe.
+Step 1:
+Use the standard libraries such as numpy, pandas, matplotlib.pyplot in python for the simple linear regression model for predicting the marks scored.
 
-2. Assign hours to X and scores to Y.
-3. Implement training set and test set of the dataframe
-4. Plot the required graph both for test data and training data.
-5. .Find the values of MSE , MAE and RMSE.
+Step 2:
+Set variables for assigning dataset values and implement the .iloc module for slicing the values of the variables X and y.
 
+Step 3:
+Import the following modules for linear regression; from sklearn.model_selection import train_test_split and also from sklearn.linear_model import LinearRegression.
+
+Step 4:
+Assign the points for representing the points required for the fitting of the straight line in the graph.
+
+Step 5:
+Predict the regression of the straight line for marks by using the representation of the graph.
+
+Step 6:
+Compare the graphs (Training set, Testing set) and hence we obtained the simple linear regression model for predicting the marks scored using the given datas.
+
+Step 7:
+End the program.
 ## Program:
 ```
 /*
 Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: Prasanna G R
-RegisterNumber:  212221040129
+Developed by: KARTHICK RAJ M
+RegisterNumber:212221040073
 */
-
-# implement a simple regression model for predicting the marks scored by the students
-
-import pandas as pd
+```import pandas as pd
 import numpy as np
 dataset=pd.read_csv('/content/student_scores.csv')
 print(dataset)
@@ -68,26 +78,39 @@ mae=mean_absolute_error(Y_test,Y_pred)
 print('MAE = ',mae)
 
 rmse=np.sqrt(mse)
-print("RMSE = ",rmse)
-*/
+print("RMSE = ",rmse
 ```
-## OUTPUT:
 
-![ml4](https://user-images.githubusercontent.com/94222288/200177597-e6ff825e-710a-40ec-842d-50233234b4d3.png)
+## Output:
 
-![mlh](https://user-images.githubusercontent.com/94222288/203804680-9b787e90-79ac-4ddf-a9d8-ec03b8b88ad2.png)
-
-![mlt](https://user-images.githubusercontent.com/94222288/203804727-227f8f8c-d13f-4904-9a3e-df48a2f8e84f.png)
+![image](https://user-images.githubusercontent.com/94911373/228476761-420b67d9-2a7d-448b-b27e-4f1804f7fd8d.png)
 
 
-![ml5](https://user-images.githubusercontent.com/94222288/200177609-a5c4987a-11fa-4426-92a8-aced68c0eb61.png)
-
-![ml7](https://user-images.githubusercontent.com/94222288/200177616-98277779-5896-480e-b9ca-702efb43b4de.png)
+![image](https://user-images.githubusercontent.com/94911373/228476846-f07ce461-e8b7-41a4-a148-d5fde1e7ee6e.png)
 
 
-![ml8](https://user-images.githubusercontent.com/94222288/200177622-f15e4f5e-0163-47f1-80b2-936d0fd1d347.png)
+![image](https://user-images.githubusercontent.com/94911373/228476904-ad0fb962-26f6-45c3-9682-275f9c75080c.png)
 
-![ml9](https://user-images.githubusercontent.com/94222288/200177626-8323e106-b6de-4688-8186-47e015923feb.png)
+
+
+![image](https://user-images.githubusercontent.com/94911373/228476956-92c91ad6-5321-43a6-9b0e-4e6153121913.png)
+
+
+
+![image](https://user-images.githubusercontent.com/94911373/228477010-1176c915-bd6c-44a7-9ce9-b55c852ae7d6.png)
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/94911373/228477085-f182b942-8344-4b00-ba1d-24c5a18de642.png)
+
+
+
+
+
+![image](https://user-images.githubusercontent.com/94911373/228477174-8c2a5a6e-40a0-4a62-8996-38afddb1c07e.png)
+
 
 
 ## Result:
