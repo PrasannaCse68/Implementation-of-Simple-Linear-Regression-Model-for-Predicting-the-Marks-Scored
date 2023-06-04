@@ -32,8 +32,8 @@ End the program.
 ```
 /*
 Program to implement the simple linear regression model for predicting the marks scored.
-Developed by: KARTHICK RAJ M
-RegisterNumber:212221040073
+Developed by: PRASANNA G R
+RegisterNumber:212221040129
 */
 ```import pandas as pd
 import numpy as np
